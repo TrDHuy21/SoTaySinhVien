@@ -11,23 +11,22 @@ import model.LopChinh;
  * @author DELL
  */
 public class XuLyLopChinh {
+    public static void fakeData() {
+        themLopChinh();
+    }
     public static void themLopChinh() {
         new LopChinh();
     }
     
-    public static void thayDoiGiaoVien(String maGiaoVien) {
+    public static void thayDoiGiaoVienChoLopChinh(LopChinh lopChinh, String maGiaoVien) {
         
     }
     
-    public static void xoaGiaoVien() {
+    public static void themSinhVien(LopChinh lopChinh, String maSinhVien) {
         
     }
     
-    public static void themSinhVien(String maSinhVien) {
-        
-    }
-    
-    public static void xoaSinhVien(String maSinhVien) {
+    public static void xoaSinhVien(LopChinh lopChinh, String maSinhVien) {
         
     }
 }
