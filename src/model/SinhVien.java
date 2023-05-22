@@ -13,7 +13,7 @@ import java.util.Objects;
  * @author DELL
  */
 public class SinhVien {
-    public static HashMap<String, SinhVien> dsSinhVien = new HashMap<>();;
+    public static HashMap<String, SinhVien> dsSinhVien = new HashMap<>();
     public static int dem = 0;
     
     private String ma;
