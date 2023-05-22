@@ -5,7 +5,7 @@
 package model;
 
 import java.util.Date;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 /**
  *
@@ -13,7 +13,8 @@ import java.util.HashMap;
  */
 public class GiaoVien {
     public static int dem = 0;
-    public static HashMap<String, GiaoVien> dsGiaoVien = new HashMap();
+    public static LinkedHashMap<String, GiaoVien> dsGiaoVien = new LinkedHashMap();
+    
     private String ma;
     private String ten;
     private String que;
@@ -23,8 +24,8 @@ public class GiaoVien {
     private String cmnd;
     private String matKhau;
     
-    private HashMap<String, LopChinh> dsLopChinh = new HashMap<>();
-    private HashMap<String, LopMonHoc> dsLopMonHoc = new HashMap<>();
+    private LinkedHashMap<String, LopChinh> dsLopChinh = new LinkedHashMap<>();
+    private LinkedHashMap<String, LopMonHoc> dsLopMonHoc = new LinkedHashMap<>();
     
     public GiaoVien(String ten, String que, Date ngaySinh, String sdt, String email, String cmnd) {
         this.ma = "GV" + dem;
@@ -73,11 +74,11 @@ public class GiaoVien {
         return matKhau;
     }
 
-    public HashMap<String, LopChinh> getDsLopChinh() {
+    public LinkedHashMap<String, LopChinh> getDsLopChinh() {
         return dsLopChinh;
     }
 
-    public HashMap<String, LopMonHoc> getDsLopMonHoc() {
+    public LinkedHashMap<String, LopMonHoc> getDsLopMonHoc() {
         return dsLopMonHoc;
     }
 
@@ -112,5 +113,23 @@ public class GiaoVien {
     public void setMatKhau(String matKhau) {
         this.matKhau = matKhau;
     }
-   
+    
+    public void themLopChinh(String maLopChinh) {
+        this.dsLopChinh.put(maLopChinh, LopChinh.getLopChinh(maLopChinh));
+    }
+    public void themLopChinh(LopChinh lopChinh) {
+        this.dsLopChinh.put(lopChinh.getMa(), lopChinh);
+    }
+     public void xoaLopChinh(String maLopChinh) {
+        this.dsLopChinh.remove(maLopChinh);
+    }
+    public void xoaLopChinh(LopChinh lopChinh) {
+        this.dsLopChinh.remove(lopChinh.getMa());
+    }
+    public static GiaoVien getGiaoVien(String maGiaoVien) {
+        if (!dsGiaoVien.containsKey(maGiaoVien)) {
+            throw new IllegalArgumentException("Khong co giao vien nay");
+        }
+        return dsGiaoVien.get(maGiaoVien);
+    }
 }

@@ -30,7 +30,7 @@ public class MonHoc {
         this.ten = ten;
         this.tinchi = tinchi;
         
-          MonHoc monhoc = this;
+         MonHoc monhoc = this;
         dsMonHoc.put(ma, monhoc);
         dem++;
     }

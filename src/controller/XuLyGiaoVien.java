@@ -12,6 +12,9 @@ import model.GiaoVien;
  * @author DELL
  */
 public class XuLyGiaoVien {
+     public static void fakeData() {
+        ThemGiaoVien("Vu thi duong", "hai Duong", new Date(1990, 8, 3), "089123123", "thiduong@gmail.com", "089123123");
+    }
     public static void ThemGiaoVien(String ten, String que, Date ngaySinh, String sdt, String email, String cmnd) {
         if (GiaoVien.dsGiaoVien.entrySet().stream().anyMatch(gv -> {
             return gv.getValue().getCmnd().equals(cmnd);
@@ -21,11 +24,11 @@ public class XuLyGiaoVien {
         new GiaoVien(ten, que, ngaySinh, sdt, email, cmnd);
     }
     
-    public static void themLopChinhChoGV() {
+    public static void themLopChinhChoGV(String maLopChinh) {
         
     }
     
-    public static void xoaLopChinhChoGV() {
+    public static void xoaLopChinhChoGV(String maLopChinh) {
         
     }
 }

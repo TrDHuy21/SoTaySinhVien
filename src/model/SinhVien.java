@@ -5,7 +5,7 @@
 package model;
 
 import java.util.Date;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Objects;
 
 /**
@@ -13,7 +13,7 @@ import java.util.Objects;
  * @author DELL
  */
 public class SinhVien {
-    public static HashMap<String, SinhVien> dsSinhVien = new HashMap<>();
+    public static LinkedHashMap<String, SinhVien> dsSinhVien = new LinkedHashMap<>();
     public static int dem = 0;
     
     private String ma;
@@ -26,8 +26,8 @@ public class SinhVien {
     private String matKhau;
     
     private LopChinh lopChinh;
-    
-    private HashMap<String, LopMonHoc> dsLopMonHoc = new HashMap<>();
+ 
+    private LinkedHashMap<String, LopMonHoc> dsLopMonHoc = new LinkedHashMap<>();
 
     public SinhVien(String ten, String que, Date ngaySinh, String sdt, String email, String cmnd) {
         this.ma = "SV" + dem;
@@ -76,7 +76,7 @@ public class SinhVien {
         return lopChinh;
     }
 
-    public HashMap<String, LopMonHoc> getDsLopMonHoc() {
+    public LinkedHashMap<String, LopMonHoc> getDsLopMonHoc() {
         return dsLopMonHoc;
     }
 
@@ -120,14 +120,15 @@ public class SinhVien {
         this.matKhau = matKhau;
     }
     
-    
-
-    public void themLop(String maLopMonHoc) {
-        
+    public void thayDoiLopChinh(String maLopChinh) {
+        lopChinh = LopChinh.getLopChinh(maLopChinh);
     }
     
-    public void xoaLop(String maLopMonHoc) {
-        
+    public static SinhVien getSinhVien(String maSinhVien) {
+        if (!dsSinhVien.containsKey(maSinhVien)) {
+            throw new IllegalArgumentException("Khong co sinh vien nay");
+        }
+        return dsSinhVien.get(maSinhVien);
     }
 
     @Override
@@ -156,11 +157,5 @@ public class SinhVien {
         }
         final SinhVien other = (SinhVien) obj;
         return Objects.equals(this.ma, other.ma);
-    }
-    
-    public static void fakeData() {
-        SinhVien sv = new SinhVien("Tran Duc Huy", "Ha Noi", new Date(2003, 9, 21), "0336361384", "vlsvhuy@gmail.com", "2021605056");
-        sv = new SinhVien("Nguyen Hoai Linh", "Ha Noi", new Date(2003, 9, 8), "0389048903", "NHL@gmail.com", "0389048903");
-    }
-    
+    }  
 }

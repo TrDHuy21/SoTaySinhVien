@@ -5,19 +5,19 @@
 package view;
 
 import controller.XuLySinhVien;
-import java.util.HashMap;
-import java.util.Objects;
-import java.util.function.BiConsumer;
+import java.util.Date;
+import model.SinhVien;
 
 /**
  *
  * @author DELL
  */
 public class SoTaySinhVien {
-
     public static void main(String[] args) {
        XuLySinhVien.fakeData();
-       XuLySinhVien.HienThiDsSV();
+       XuLySinhVien.ThemSinhVien("abc", "fas", new Date(200,1,1), "2424", "abc@gmail.com", "2424");
+       XuLySinhVien.HienThiDsSV();    
+       
     }
     
 }
