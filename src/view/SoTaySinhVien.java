@@ -4,6 +4,7 @@
  */
 package view;
 
+import controller.XuLyGiaoVien;
 import controller.XuLySinhVien;
 import java.util.Date;
 import model.SinhVien;
@@ -13,11 +14,7 @@ import model.SinhVien;
  * @author DELL
  */
 public class SoTaySinhVien {
-    public static void main(String[] args) {
-       XuLySinhVien.fakeData();
-       XuLySinhVien.ThemSinhVien("abc", "fas", new Date(200,1,1), "2424", "abc@gmail.com", "2424");
-       XuLySinhVien.HienThiDsSV();    
-       
+    public static void main(String[] args) {  
     }
     
 }

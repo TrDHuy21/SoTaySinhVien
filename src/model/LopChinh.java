@@ -73,7 +73,7 @@ public class LopChinh {
     
     public static LopChinh getLopChinh(String maLopChinh) {
         if (!dsLopChinh.containsKey(maLopChinh)) {
-            throw new IllegalArgumentException("Khong co sinh vien nay");
+            throw new IllegalArgumentException("Khong co lop chinh nay");
         }
         return dsLopChinh.get(maLopChinh);
     }
