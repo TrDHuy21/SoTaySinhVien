@@ -13,6 +13,7 @@ import java.util.Objects;
  * @author DELL
  */
 public class SinhVien {
+    public static SinhVien User;
     public static LinkedHashMap<String, SinhVien> dsSinhVien = new LinkedHashMap<>();
     public static int dem = 0;
     
@@ -123,11 +124,11 @@ public class SinhVien {
     public void thayDoiLopChinh(String maLopChinh) {
         lopChinh = LopChinh.getLopChinh(maLopChinh);
     }
+    public void thayDoiLopChinh(LopChinh lopChinh) {
+        this.lopChinh = lopChinh;
+    }
     
-    public static SinhVien getSinhVien(String maSinhVien) {
-        if (!dsSinhVien.containsKey(maSinhVien)) {
-            throw new IllegalArgumentException("Khong co sinh vien nay");
-        }
+    public static SinhVien getSinhVien(String maSinhVien){
         return dsSinhVien.get(maSinhVien);
     }
 

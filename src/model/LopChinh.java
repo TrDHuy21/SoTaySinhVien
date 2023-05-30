@@ -27,6 +27,10 @@ public class LopChinh {
         dem++;
     }
 
+    public LopChinh(GiaoVien giaoVien) {
+        this.giaoVien = giaoVien;
+    }
+
     public LopChinh(GiaoVien giaoVien, LinkedHashMap<String, SinhVien> dsSinhVien) {
         ma  = "LC" + dem;
          
@@ -72,9 +76,6 @@ public class LopChinh {
     }
     
     public static LopChinh getLopChinh(String maLopChinh) {
-        if (!dsLopChinh.containsKey(maLopChinh)) {
-            throw new IllegalArgumentException("Khong co lop chinh nay");
-        }
         return dsLopChinh.get(maLopChinh);
     }
 }

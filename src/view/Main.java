@@ -4,17 +4,14 @@
  */
 package view;
 
-import controller.XuLyGiaoVien;
-import controller.XuLySinhVien;
-import java.util.Date;
-import model.SinhVien;
 
-/**
- *
- * @author DELL
- */
-public class SoTaySinhVien {
-    public static void main(String[] args) {  
+import controller.XuLy;
+import javax.swing.JFrame;
+
+
+public class Main {
+    public static JFrame jframe;
+    public static void main(String[] args) { 
+        XuLy.batDau();
     }
-    
 }

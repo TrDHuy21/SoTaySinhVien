@@ -1,10 +1,8 @@
 package controller;
 
 import java.util.Date;
-import java.util.Map;
-import java.util.Set;
 import model.GiaoVien;
-import model.LopChinh;
+import model.User;
 
 public class XuLyGiaoVien {
 
@@ -16,6 +14,17 @@ public class XuLyGiaoVien {
         ThemGiaoVien("Nguyen Thi Binh", "Hung Yen", new Date(1994, 11, 8), "099234123", "tranbinh@gmail.com", "026423123");
         ThemGiaoVien("Mai Thanh Hong", "Phu Tho", new Date(1995, 12, 1), "083453123", "thanhhong@gmail.com", "089197223");
     }
+    
+    public static boolean dangNhap(String tk, String mk) {
+        GiaoVien gv = GiaoVien.getGiaoVien(tk);
+        if (gv == null)
+            return false;
+        if(gv.getMatKhau().equals(mk)) {
+            User.gv = GiaoVien.getGiaoVien(tk);
+            return true;
+        }
+        return false;
+    }
 
     public static void ThemGiaoVien(String ten, String que, Date ngaySinh, String sdt, String email, String cmnd) {
         if (GiaoVien.dsGiaoVien.entrySet().stream().anyMatch(gv -> {
@@ -24,36 +33,5 @@ public class XuLyGiaoVien {
             throw new IllegalArgumentException("Da co giao vien nay");
         }
         new GiaoVien(ten, que, ngaySinh, sdt, email, cmnd);
-    }
-
-    public static void themLopChinhChoGV(GiaoVien gv, String maLopChinh) throws Exception {
-        
-        //them lop cho giao vien
-        
-        // thay doi thuoc tinh giao vien trong lop chinh
-    }
-
-    public static void xoaLopChinhChoGV(GiaoVien gv, String maLopChinh) throws Exception {
-        //check Lớp này có thuộc Giao Vien này hay không
-        boolean check = false;
-        Set<Map.Entry<String, LopChinh>> entrySet = gv.getDsLopChinh().entrySet();
-        for (Map.Entry<String, LopChinh> entry : entrySet) {
-            String key = entry.getKey();
-            if(key.equals(maLopChinh)){
-                //Đã tồn tại lớp này
-                check = true;
-            }
-        }
-        
-        gv.getDsLopChinh().containsKey(maLopChinh);
-        if(check){
-            //Xóa Lớp Chính
-            gv.getDsLopChinh().remove(maLopChinh);
-        }else{
-            throw new Exception("Lop Hoc Khong Ton Tai !!!");
-        }
-        
-        
-        lopchinh.setgiaovien(null);
     }
 }

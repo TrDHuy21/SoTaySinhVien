@@ -13,27 +13,6 @@ import java.util.HashSet;
  * @author DELL
  */
 public class LopMonHoc {
-//    static int dem;
-//    private String ma;
-//    private MonHoc subject;
-//    private GiaoVien giaoVien;
-//    private HashSet<SinhVien> danhSachSinhVien;
-//    
-//    private int soSVMax;
-//    private int soSVMin;
-//    
-//    private Date ngayBD;
-//    private Date ngayDK;
-//    private Date ngayHetDK;
-//    
-//    private ArrayList<TietHoc> lichHocTrongTuan;
-//    private int soTietMotBuoi;
-//    a
-//    private String trangThai;
-
-    /**
-     *
-     */
     public static int dem = 0;
     static public HashMap<String, LopMonHoc> dsLopMonHoc;
     private String ma;

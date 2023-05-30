@@ -97,8 +97,5 @@ public class MonHoc {
 //        }
     }
 
-    public static void main(String[] args) {
-
-    }
 
 }

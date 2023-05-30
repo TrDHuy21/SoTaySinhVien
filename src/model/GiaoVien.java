@@ -12,6 +12,7 @@ import java.util.LinkedHashMap;
  * @author DELL
  */
 public class GiaoVien {
+    public static GiaoVien User;
     public static int dem = 0;
     public static LinkedHashMap<String, GiaoVien> dsGiaoVien = new LinkedHashMap();
     
@@ -81,7 +82,7 @@ public class GiaoVien {
     public LinkedHashMap<String, LopMonHoc> getDsLopMonHoc() {
         return dsLopMonHoc;
     }
-
+    
     public void setMa(String ma) {
         this.ma = ma;
     }
@@ -127,9 +128,6 @@ public class GiaoVien {
         this.dsLopChinh.remove(lopChinh.getMa());
     }
     public static GiaoVien getGiaoVien(String maGiaoVien) {
-        if (!dsGiaoVien.containsKey(maGiaoVien)) {
-            throw new IllegalArgumentException("Khong co giao vien nay");
-        }
         return dsGiaoVien.get(maGiaoVien);
     }
 }
