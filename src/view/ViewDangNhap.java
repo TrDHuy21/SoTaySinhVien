@@ -11,7 +11,7 @@ import controller.XuLy;
  * @author DELL
  */
 public class ViewDangNhap extends javax.swing.JFrame {
-    public static ViewDangNhap viewDangNhap;
+    public static ViewDangNhap vdn;
     /**
      * Creates new form ViewDangNhap
      */

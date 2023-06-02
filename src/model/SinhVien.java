@@ -13,44 +13,60 @@ import java.util.Objects;
  * @author DELL
  */
 public class SinhVien {
-    public static SinhVien User;
-    public static LinkedHashMap<String, SinhVien> dsSinhVien = new LinkedHashMap<>();
+    public static LinkedHashMap<String, SinhVien> dsSV = new LinkedHashMap<>();
     public static int dem = 0;
     
     private String ma;
+    private String matKhau;
     private String ten;
+    private String gioitinh;
     private String que;
     private Date ngaySinh;
     private String sdt;
     private String email;
     private String cmnd;
-    private String matKhau;
-    
     private LopChinh lopChinh;
- 
-    private LinkedHashMap<String, LopMonHoc> dsLopMonHoc = new LinkedHashMap<>();
+    private LinkedHashMap<String, LopMonHoc> dsLMH = new LinkedHashMap<>();
 
-    public SinhVien(String ten, String que, Date ngaySinh, String sdt, String email, String cmnd) {
-        this.ma = "SV" + dem;
+    public SinhVien() {
+    }
+
+    public SinhVien(String ten, String gioitinh, String que, Date ngaySinh, String sdt, String email, String cmnd, LopChinh lopChinh) {
         this.ten = ten;
+        this.gioitinh = gioitinh;
         this.que = que;
         this.ngaySinh = ngaySinh;
         this.sdt = sdt;
         this.email = email;
         this.cmnd = cmnd;
-        this.matKhau = ma;
-        
-        SinhVien sinhVien = this;
-        dsSinhVien.put(ma, sinhVien);
-        dem++;
+        this.lopChinh = lopChinh;
+        this.ma = "sv" + dem++;
+        SinhVien s = this;
+        SinhVien.dsSV.put(ma, s);
+    }
+
+    public static LinkedHashMap<String, SinhVien> getDsSV() {
+        return dsSV;
+    }
+
+    public static int getDem() {
+        return dem;
     }
 
     public String getMa() {
         return ma;
     }
 
+    public String getMatKhau() {
+        return matKhau;
+    }
+
     public String getTen() {
         return ten;
+    }
+
+    public String getGioitinh() {
+        return gioitinh;
     }
 
     public String getQue() {
@@ -77,71 +93,15 @@ public class SinhVien {
         return lopChinh;
     }
 
-    public LinkedHashMap<String, LopMonHoc> getDsLopMonHoc() {
-        return dsLopMonHoc;
-    }
-
-    public String getMatKhau() {
-        return matKhau;
-    }
-
-    public void setMa(String ma) {
-        this.ma = ma;
-    }
-
-    public void setTen(String ten) {
-        this.ten = ten;
-    }
-
-    public void setQue(String que) {
-        this.que = que;
-    }
-
-    public void setNgaySinh(Date ngaySinh) {
-        this.ngaySinh = ngaySinh;
-    }
-
-    public void setSdt(String sdt) {
-        this.sdt = sdt;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setCmnd(String cmnd) {
-        this.cmnd = cmnd;
-    }
-
-    public void setLopChinh(LopChinh lopChinh) {
-        this.lopChinh = lopChinh;
-    }
-
-    public void setMatKhau(String matKhau) {
-        this.matKhau = matKhau;
-    }
-    
-    public void thayDoiLopChinh(String maLopChinh) {
-        lopChinh = LopChinh.getLopChinh(maLopChinh);
-    }
-    public void thayDoiLopChinh(LopChinh lopChinh) {
-        this.lopChinh = lopChinh;
-    }
-    
-    public static SinhVien getSinhVien(String maSinhVien){
-        return dsSinhVien.get(maSinhVien);
-    }
-
-    @Override
-    public String toString() {
-        return "SinhVien{" + "ma=" + ma + ", ten=" + ten + ", que=" + que + ", ngaySinh=" + ngaySinh + ", sdt=" + sdt + ", email=" + email + ", cmnd=" + cmnd + ", matKhau=" + matKhau + ", lopChinh=" + lopChinh + '}';
+    public LinkedHashMap<String, LopMonHoc> getDsLMH() {
+        return dsLMH;
     }
     
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 13 * hash + Objects.hashCode(this.ma);
+        int hash = 3;
+        hash = 61 * hash + Objects.hashCode(this.ma);
         return hash;
     }
 
@@ -157,6 +117,6 @@ public class SinhVien {
             return false;
         }
         final SinhVien other = (SinhVien) obj;
-        return Objects.equals(this.ma, other.ma);
-    }  
+        return Objects.equals(this.cmnd, other.cmnd);
+    }
 }

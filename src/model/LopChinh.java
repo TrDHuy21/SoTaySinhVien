@@ -6,6 +6,7 @@ package model;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.Objects;
 
 
 /**
@@ -14,68 +15,84 @@ import java.util.LinkedHashMap;
  */
 public class LopChinh {
     public static int dem = 0;
-    public static LinkedHashMap<String, LopChinh> dsLopChinh = new LinkedHashMap<>();
+    public static LinkedHashMap<String, LopChinh> dsLC = new LinkedHashMap<>();
     private String ma;
-    private GiaoVien giaoVien;
-    private LinkedHashMap<String, SinhVien> dsSinhVien = new LinkedHashMap<>();
+    private String ten;
+    private GiaoVien gv;
+    private Nganh n; 
+    private LinkedHashMap<String, SinhVien> dsSV = new LinkedHashMap<>();
 
     public LopChinh() {
-        ma  = "LC" + dem;
-        
-        LopChinh lopChinh = this;
-        LopChinh.dsLopChinh.put(ma, this);
-        dem++;
     }
+    
 
-    public LopChinh(GiaoVien giaoVien) {
-        this.giaoVien = giaoVien;
-    }
-
-    public LopChinh(GiaoVien giaoVien, LinkedHashMap<String, SinhVien> dsSinhVien) {
-        ma  = "LC" + dem;
-         
-        this.giaoVien = giaoVien;
-        this.dsSinhVien = dsSinhVien;
-        
-        LopChinh lopChinh = this;
-        LopChinh.dsLopChinh.put(ma, this);
-        dem++;
+    public LopChinh(GiaoVien gv, Nganh n) {
+        this.ten = n.getTen() + n.getSoLop();
+        this.gv = gv;
+        this.n = n;
+        this.ma = n.getMa() + n.getSoLop();
+        n.setSoLop(n.getSoLop()+1);
     }
 
     public String getMa() {
         return ma;
     }
 
-    public GiaoVien getGiaoVien() {
-        return giaoVien;
+    public String getTen() {
+        return ten;
     }
 
-    public LinkedHashMap<String, SinhVien> getDsSinhVien() {
-        return dsSinhVien;
+    public GiaoVien getGv() {
+        return gv;
     }
 
-    public void setGiaoVien(GiaoVien giaoVien) {
-        this.giaoVien = giaoVien;
-    }   
-    public void thayDoiGiaoVien(String maGiaoVien) {
-        this.giaoVien = GiaoVien.getGiaoVien(maGiaoVien);
+    public Nganh getN() {
+        return n;
     }
-    
-    public void themSinhVien(String maSinhVien) {
-        this.dsSinhVien.put(maSinhVien, SinhVien.getSinhVien(maSinhVien));
+
+    public LinkedHashMap<String, SinhVien> getDsSV() {
+        return dsSV;
     }
-    public void themSinhVien(SinhVien sinhVien) {
-        this.dsSinhVien.put(sinhVien.getMa(), sinhVien);
+
+    public void setMa(String ma) {
+        this.ma = ma;
     }
-    public void xoaSinhVien(String maSinhVien) {
-        this.dsSinhVien.remove(maSinhVien);
+
+    public void setTen(String ten) {
+        this.ten = ten;
     }
-    
-    public void xoaSinhVien(SinhVien sinhVien) {
-        this.dsSinhVien.remove(sinhVien.getMa());
+
+    public void setGv(GiaoVien gv) {
+        this.gv = gv;
     }
-    
-    public static LopChinh getLopChinh(String maLopChinh) {
-        return dsLopChinh.get(maLopChinh);
+
+    public void setN(Nganh n) {
+        this.n = n;
     }
+
+    public void setDsSV(LinkedHashMap<String, SinhVien> dsSV) {
+        this.dsSV = dsSV;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 37 * hash + Objects.hashCode(this.ma);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final LopChinh other = (LopChinh) obj;
+        return Objects.equals(this.ma, other.ma);
+    } 
 }

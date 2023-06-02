@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package view.GiaoVien;
+package view;
 
 /**
  *
  * @author DELL
  */
-public class ViewGiaoVien extends javax.swing.JFrame {
-    public static ViewGiaoVien viewGiaoVien;
+public class TrangChu extends javax.swing.JFrame {
+
     /**
-     * Creates new form ViewTrangChuGiaoVien
+     * Creates new form TrangChu
      */
-    public ViewGiaoVien() {
+    public TrangChu() {
         initComponents();
     }
 
@@ -45,7 +45,6 @@ public class ViewGiaoVien extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
